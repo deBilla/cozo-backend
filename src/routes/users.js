@@ -23,7 +23,10 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.send('User Details');
+    User.find(function (err, kittens) {
+        if (err) return console.error(err);
+        console.log(kittens);
+      })
 });
 
 module.exports = router;
