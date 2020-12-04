@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
-const PostSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
     title: String,
     description: String,
-    date: {
+    price: Number,
+    addedDate: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model('Posts', PostSchema);
+module.exports = mongoose.model('Product', ProductSchema);

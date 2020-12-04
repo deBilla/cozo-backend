@@ -3,15 +3,15 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
+router.post('/register', (req, res) => {
     const user = new User({
-        name: req.body.name,
-        email: req.body.email
+        email: req.body.email,
+        password: req.body.password
     });
 
     console.log({
-        name: req.body.name,
         email: req.body.email,
+        password: req.body.password,
         ff: user.createdAt
     });
 
@@ -19,11 +19,25 @@ router.post('/', (req, res) => {
         console.log('meow');
         res.json(user);
     });
-        
 });
 
-router.get('/', (req, res) => {
-    res.send('User Details');
+router.post('/login', (req, res) => {
+    User.findOne({email: req.body.email,  password: req.body.password}, function(err, data){
+        console.log( data );
+
+        if (data) {
+            res.send({status: "success"});
+        } else {
+            res.send({status: "failure"});
+        }
+    });    
+});
+
+router.get('/alluser', (req, res) => {
+    User.find({}, function(err, data){
+        console.log(">>>> " + data );
+        res.send(data);
+    });
 });
 
 module.exports = router;

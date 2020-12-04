@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv/config');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const postRoutes  = require('./routes/posts');
+const productRoutes  = require('./routes/products');
 const userRoutes = require('./routes/users');
 
 const app = express();
@@ -21,7 +21,7 @@ mongoose.connect(process.env.DB_CONNECTION,
 
 
 // Middleware
-app.use('/post', postRoutes);
+app.use('/product', productRoutes);
 app.use('/user', userRoutes);
 
 // Routes
