@@ -35,8 +35,8 @@ router.post('/add', (req, res) => {
 });
 
 router.get('/oneproduct', (req, res) => {
-    Product.findOne({_id: req.body.id}, function(err, data){
-        console.log( data );
+    Product.findOne({_id: req.query.id}, function(err, data){
+        console.log( req.query );
 
         if (data) {
             res.send({status: "success", data: data});
