@@ -16,7 +16,8 @@ router.post('/add', (req, res) => {
         price: req.body.price,
         ratingValue: req.body.ratingValue,
         reviewCount: req.body.reviewCount,
-        venderName: req.body.venderName
+        venderName: req.body.venderName,
+        imageURL: req.body.imageURL
     });
 
     console.log({
@@ -25,7 +26,8 @@ router.post('/add', (req, res) => {
         price: req.body.price,
         ratingValue: req.body.ratingValue,
         reviewCount: req.body.reviewCount,
-        venderName: req.body.venderName
+        venderName: req.body.venderName,
+        imageURL: req.body.imageURL
     });
 
     product.save().then(() => {

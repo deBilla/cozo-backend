@@ -7,6 +7,7 @@ const ProductSchema = mongoose.Schema({
     reviewCount: String,
     venderName: String,
     price: String,
+    imageURL: String,
     addedDate: {
         type: Date,
         default: Date.now
