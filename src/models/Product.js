@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const ProductSchema = mongoose.Schema({
     title: String,
     description: String,
+    ratingValue: Number,
+    reviewCount: Number,
+    venderName: String,
     price: Number,
     addedDate: {
         type: Date,

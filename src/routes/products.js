@@ -13,13 +13,19 @@ router.post('/add', (req, res) => {
     const product = new Product({
         title: req.body.title,
         description: req.body.description,
-        price: req.body.price
+        price: req.body.price,
+        ratingValue: req.body.ratingValue,
+        reviewCount: req.body.reviewCount,
+        venderName: req.body.venderName
     });
 
     console.log({
         title: req.body.title,
         description: req.body.description,
-        price: req.body.price
+        price: req.body.price,
+        ratingValue: req.body.ratingValue,
+        reviewCount: req.body.reviewCount,
+        venderName: req.body.venderName
     });
 
     product.save().then(() => {
@@ -29,9 +35,7 @@ router.post('/add', (req, res) => {
 });
 
 router.get('/oneproduct', (req, res) => {
-    Product.findOne({title: req.body.title,
-        description: req.body.description,
-        price: req.body.price}, function(err, data){
+    Product.findOne({_id: req.body.id}, function(err, data){
         console.log( data );
 
         if (data) {
